@@ -22,7 +22,7 @@ export class CadastroLivrosComponent implements OnInit {
   private fotoUrl: string = "";
 
   displayedColumns = ["titulo","autor","isbn","categoria","excluir"];
-  @Input() dataSource: Livro[] = [];
+  dataSource: Livro[] = [];
 
   constructor(
     private notification: NotificationService,

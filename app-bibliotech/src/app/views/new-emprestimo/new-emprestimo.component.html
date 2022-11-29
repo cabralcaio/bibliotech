@@ -32,7 +32,7 @@
                 <mat-select [(value)]="selected2" formControlName="livro">
                   <mat-option></mat-option>
                   <mat-option value="livro-teste">livro-teste</mat-option>
-                  <!-- <mat-option *ngFor="let livro of dataSource" [value]="livro.nome">{{livro.titulo}}</mat-option> -->
+                  <mat-option *ngFor="let livro of dataSource" [value]="livro.titulo">{{livro.titulo}}</mat-option>
                   <!-- <mat-option value="option1">PENDENTE</mat-option>
                   <mat-option value="option2">DEVOLVIDO</mat-option> -->
                 </mat-select>

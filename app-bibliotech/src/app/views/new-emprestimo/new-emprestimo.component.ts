@@ -6,6 +6,7 @@ import { NotificationService } from '../../services/notification.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Livro } from 'src/app/models/livro';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-new-emprestimo',
@@ -13,13 +14,6 @@ import { Livro } from 'src/app/models/livro';
   styleUrls: ['./new-emprestimo.component.css']
 })
 export class NewemprestimoComponent implements OnInit {
-  @Output() emissorEvento = new EventEmitter<any>();
-  // public emprestimo: Emprestimo
-  public novoLivro: Livro = { //tentativa de comunicação
-    titulo: "",
-    autor: "",
-    isbn: "",
-    categoria: ""};
 
   public dataSource: Livro[] = [] // tentativa de comunicação
 
@@ -35,7 +29,8 @@ export class NewemprestimoComponent implements OnInit {
     private notification: NotificationService,
     private emprestimoService: emprestimoService,
     private router: Router,
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private livroService: LivroService,
   ) {
     this.formemprestimo = fb.group({
       leitor: ["", [Validators.required]],
@@ -53,6 +48,14 @@ export class NewemprestimoComponent implements OnInit {
       // this.emprestimoService.createemprestimo(emprestimo).subscribe(response => {
       //   this.notification.showMessage("Cadastrado com sucesso.")
       //   })
+      this.initializeLivro()
+  }
+
+  private initializeLivro(): void {
+    this.livroService.findAll().subscribe(livros => {
+      this.dataSource = livros;
+      console.log(this.dataSource)
+    });
   }
 
   public createemprestimo(): void {
@@ -84,11 +87,6 @@ export class NewemprestimoComponent implements OnInit {
     });
   }
 
-  criarLivro() { //tentativa de comunicação
-    this.emissorEvento.emit({
-      novoLivro: this.novoLivro
-    })
-  }
 
   // recebeLivro(dataSource: { titulo: string}) {
   //   this.dataSource.push({

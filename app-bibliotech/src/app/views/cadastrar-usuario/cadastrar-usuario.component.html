@@ -1,0 +1,17 @@
+<div id="login-container">
+    <div class="login-form">
+        <h1>Cadastre-se</h1>
+        <button (click)="signInGoogle()">
+            <div class="is-flex">
+                <img src="/assets/icons2/google-logo.svg" alt="Logo Google">
+                <p>Continuar com o google</p>
+            </div>
+        </button>
+        <form [formGroup]="formCadastro">
+            <input type="email" placeholder="E-mail" formControlName="email">
+            <input type="password" placeholder="Senha" formControlName="senha">
+            <button type="submit" mat-mini-fab color="primary" (click)="createUserEmailAndPassword()">Cadastrar</button>
+        </form>
+        <span><a routerLink="/login">Voltar para Login</a></span>
+    </div>
+</div>

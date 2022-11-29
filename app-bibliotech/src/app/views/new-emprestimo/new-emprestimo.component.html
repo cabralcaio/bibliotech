@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Novo Empréstimo</h1>
+    <form [formGroup]="formemprestimo">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Leitor</mat-label>
+            <input type="text" matInput placeholder="Leitor" formControlName="leitor">
+        </mat-form-field>
+        
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input type="email" matInput placeholder="E-mail" formControlName="email">
+        </mat-form-field>
+
+        
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input type="text" matInput placeholder="Telefone" formControlName="telefone" >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Status</mat-label>
+                <mat-select [(value)]="selected" formControlName="status">
+                  <mat-option></mat-option>
+                  <mat-option value="PENDENTE">PENDENTE</mat-option>
+                  <mat-option value="DEVOLVIDO">DEVOLVIDO</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Livro</mat-label>
+                <mat-select [(value)]="selected2" formControlName="livro">
+                  <mat-option></mat-option>
+                  <mat-option value="livro-teste">livro-teste</mat-option>
+                  <!-- <mat-option *ngFor="let livro of dataSource" [value]="livro.nome">{{livro.titulo}}</mat-option> -->
+                  <!-- <mat-option value="option1">PENDENTE</mat-option>
+                  <mat-option value="option2">DEVOLVIDO</mat-option> -->
+                </mat-select>
+              </mat-form-field>
+
+            <!-- <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Status</mat-label>
+                <select id="selecao" name="carros">
+                    <option>Disponível</option>
+                    <option>Emprestado</option>
+                </select>
+            </mat-form-field> -->
+
+        <div class="double-width">
+            <button class="full-width btn-submit" mat-raised-button (click)="createemprestimo()">Cadastrar</button>
+            <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a>
+        </div>
+    </form>
+</div>

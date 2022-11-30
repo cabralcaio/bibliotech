@@ -67,7 +67,7 @@ export class NewemprestimoComponent implements OnInit {
       emprestimo.fotoUrl = emprestimo.livro.fotoUrl
       this.emprestimoService.createemprestimo(emprestimo).subscribe(response => {
         this.notification.showMessage("Cadastrado com sucesso.");
-        // this.router.navigate(["/dashboard"]);
+        this.router.navigate(["/dashboard"]);
       });
     }
     else {

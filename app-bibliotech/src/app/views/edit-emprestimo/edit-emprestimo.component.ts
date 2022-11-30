@@ -5,6 +5,8 @@ import { Emprestimo } from '../../models/emprestimo';
 import { NotificationService } from '../../services/notification.service';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { Livro } from 'src/app/models/livro';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-edit-emprestimo',
@@ -12,6 +14,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-emprestimo.component.css']
 })
 export class EditemprestimoComponent implements OnInit {
+  public dataSource: Livro[] = [] // tentativa de comunicação
 
   public emprestimo: Emprestimo = {
     leitor: "",
@@ -34,11 +37,20 @@ export class EditemprestimoComponent implements OnInit {
     private EmprestimoService: emprestimoService,
     private router: Router,
     private route: ActivatedRoute,
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private livroService: LivroService
   ) { }
 
   ngOnInit(): void {
     this.initilizeFields();
+    this.initializeLivro()
+  }
+
+  private initializeLivro(): void {
+    this.livroService.findAll().subscribe(livros => {
+      this.dataSource = livros;
+      console.log(this.dataSource)
+    });
   }
 
   selected = "option0"

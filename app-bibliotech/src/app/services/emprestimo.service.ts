@@ -16,6 +16,7 @@ export class emprestimoService {
   ) { }
 
   public createemprestimo(emprestimo: Emprestimo): Observable<any> {
+    console.log(emprestimo.livro.fotoUrl)
     const promise = this.firestore.collection("emprestimos").add(emprestimo);
     return from(promise).pipe(
       catchError(error => {

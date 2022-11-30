@@ -9,4 +9,5 @@ export interface Emprestimo {
     livro: Livro;
     telefone: string;
     leitor: string;
+    titulolivro: string;
 }

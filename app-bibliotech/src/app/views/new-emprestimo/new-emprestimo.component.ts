@@ -37,7 +37,7 @@ export class NewemprestimoComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      livro: [""]
+      livro: ["",[Validators.required]]
     });
   }
 
@@ -60,13 +60,14 @@ export class NewemprestimoComponent implements OnInit {
 
   public createemprestimo(): void {
     if(true) { //this.formemprestimo.valid
-      console.log("entrou")
-      const emprestimo: Emprestimo = this.formemprestimo.value; 
+      const emprestimo: Emprestimo = this.formemprestimo.value;
       let today = new Date(Date.now())
       emprestimo.dataEmprestimo = today
+      console.log(emprestimo.livro.fotoUrl)
+      emprestimo.fotoUrl = emprestimo.livro.fotoUrl
       this.emprestimoService.createemprestimo(emprestimo).subscribe(response => {
         this.notification.showMessage("Cadastrado com sucesso.");
-        this.router.navigate(["/dashboard"]);
+        // this.router.navigate(["/dashboard"]);
       });
     }
     else {

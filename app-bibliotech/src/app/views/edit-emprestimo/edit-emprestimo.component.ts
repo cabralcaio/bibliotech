@@ -18,6 +18,7 @@ export class EditemprestimoComponent implements OnInit {
     email: "",
     telefone:"",
     status: "",
+    titulolivro: "",
     livro: {
       titulo: "",
       autor: "",

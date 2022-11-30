@@ -4,6 +4,8 @@ import { emprestimoService } from './../../services/emprestimo.service';
 import { Emprestimo } from '../../models/emprestimo';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { LivroService } from 'src/app/services/livro.service';
+import { Livro } from 'src/app/models/livro';
 
 
 @Component({
@@ -19,7 +21,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private EmprestimoService: emprestimoService,
     private notification: NotificationService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private livroService: LivroService
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +43,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public openDetails(emprestimo: Emprestimo): void {
+    console.log(emprestimo.fotoUrl)
     this.dialog.open(DetailsComponent, {
       width: "400px",
       data: emprestimo

@@ -4,11 +4,11 @@
         <i class="material-icons">close</i>
     </button>
 
-    <img src="{{emprestimo.fotoUrl | avatar}}" alt="Avatar">
+    <img src="{{emprestimo.livro.fotoUrl | avatar}}" alt="Avatar">
     <h3>{{emprestimo.leitor}}</h3>
 
-    <span><strong>Título: </strong> {{emprestimo.leitor}}</span>
-    <span><strong>ISBN: </strong> {{emprestimo.email}}</span>
-    <span><strong>Categoria: </strong> {{emprestimo.livro}}</span>
-    <span><strong>Autor: </strong> {{emprestimo.telefone}}</span>
+    <span><strong>Título: </strong> {{emprestimo.livro.titulo}}</span>
+    <span><strong>ISBN: </strong> {{emprestimo.livro.isbn}}</span>
+    <span><strong>Categoria: </strong> {{emprestimo.livro.categoria}}</span>
+    <span><strong>Autor: </strong> {{emprestimo.livro.autor}}</span>
 </div>

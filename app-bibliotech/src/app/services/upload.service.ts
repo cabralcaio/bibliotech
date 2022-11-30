@@ -15,6 +15,7 @@ export class UploadService {
   ) { }
 
   public uploadFoto(photo: File): Observable<any> {
+    console.log("chegou no uploadservice")
     const promise = this.storage.upload(`fotos/${Date.now()}`, photo);
     return from(promise).pipe(
       catchError(error => {

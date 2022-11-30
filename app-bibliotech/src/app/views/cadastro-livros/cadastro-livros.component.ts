@@ -37,7 +37,7 @@ export class CadastroLivrosComponent implements OnInit {
       autor: ["", [Validators.required]],
       categoria: ["", [Validators.required]],
       isbn: ["", [Validators.required]],
-      capa: [""]
+      capa: ["",[Validators.required]]
     });
   }
 
@@ -70,10 +70,12 @@ export class CadastroLivrosComponent implements OnInit {
   public createlivro(): void {
     if(true) { //this.formlivro.valid
       console.log("entrou")
+      console.log()
       const livro: Livro = this.formlivro.value; 
+      livro.fotoUrl = this.fotoUrl
+      console.log(livro.fotoUrl)
       this.livroService.createlivro(livro).subscribe(response => {
         this.notification.showMessage("Cadastrado com sucesso.");
-        console.log(this.dataSource)
         window.location.reload();
       });
     }
@@ -83,6 +85,7 @@ export class CadastroLivrosComponent implements OnInit {
   }
 
   public uploadFile(event: any): void {
+    console.log("chegou no uploadTS")
     this.isLoadUpload = true;
     const file: File = event.target.files[0];
     this.uploadService.uploadFoto(file).subscribe(uploadResult  => {

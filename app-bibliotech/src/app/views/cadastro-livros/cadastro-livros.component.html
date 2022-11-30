@@ -65,10 +65,11 @@
             </div>
 
             <div class="is-flex">
-                <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Capa</mat-label>
-                    <input type="text" matInput placeholder="Capa" formControlName="capa" >
-                </mat-form-field>
+                <div class="is-column">
+                    <mat-label>Insira a capa</mat-label>
+                    <input class="upload-photo" type="file" placeholder="capa" formControlName="capa" (change)="uploadFile($event)">
+        <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
+                </div>
 
                 <button class="full-width btn-submit" mat-raised-button (click)="createlivro()">Adicionar</button>
             </div>

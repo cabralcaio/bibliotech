@@ -1,5 +1,6 @@
 table {
     width: 100%;
+    background-color: #F0F0F0;
 }
 .h1 {
     display: flex;
@@ -12,6 +13,7 @@ table {
     height: 30vh;
     width: 50vw;
     overflow: auto;
+    background-color: #F0F0F0;
 }
 .container {
     display: flex;
@@ -66,8 +68,9 @@ table {
 }
 
 .upload-photo {
-    width: 100%;
+    width: 450px;
     padding: 10px 20px;
+    height: 50px;
     border: 1px solid #BABABA;
     border-radius: 5px;
     cursor: pointer;
@@ -84,4 +87,8 @@ table {
 
 .container2 {
     margin: 100px 100px;
+}
+.is-column {
+    display: flex;
+    flex-direction: column;
 }
